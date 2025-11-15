@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ScreenLockApp</string>
+    <string name="settings">Settings</string>
+    <string name="lock_screen">Lock Screen</string>
+    <string name="enable_lock">Enable Lock Screen</string>
+    <string name="high_contrast">High Contrast Theme</string>
+    <string name="high_contrast_summary">Improves readability with enhanced color contrast</string>
+    <string name="unlock">Unlock</string>
+    <string name="enter_pin">Enter PIN</string>
+    <string name="incorrect_pin">Incorrect PIN. Please try again.</string>
+    <string name="pin_set_success">PIN set successfully</string>
+    <string name="lock_activated">Screen lock activated</string>
+    <string name="theme_settings">Theme Settings</string>
+</resources>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base Dark Theme -->
+    <style name="Theme.ScreenLock.Dark" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary colors -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryVariant">@color/primaryVariant</item>
+        <item name="colorSecondary">@color/secondary</item>
+        
+        <!-- Background colors -->
+        <item name="android:colorBackground">@color/background</item>
+        <item name="colorSurface">@color/surface</item>
+        
+        <!-- On colors -->
+        <item name="colorOnPrimary">@color/onPrimary</item>
+        <item name="colorOnSecondary">@color/onSecondary</item>
+        <item name="colorOnBackground">@color/onBackground</item>
+        <item name="colorOnSurface">@color/onSurface</item>
+        
+        <!-- Custom attributes -->
+        <item name="colorError">@color/errorColor</item>
+        <item name="colorSuccess">@color/successColor</item>
+        <item name="textColorPrimary">@color/textPrimary</item>
+        <item name="textColorSecondary">@color/textSecondary</item>
+        <item name="outlineColor">@color/outline</item>
+        <item name="dividerColor">@color/divider</item>
+        
+        <!-- Text appearance -->
+        <item name="android:textColorPrimary">@color/textPrimary</item>
+        <item name="android:textColorSecondary">@color/textSecondary</item>
+    </style>
+
+    <!-- High Contrast Theme -->
+    <style name="Theme.ScreenLock.HighContrast" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary colors -->
+        <item name="colorPrimary">@color/high_contrast_primary</item>
+        <item name="colorPrimaryVariant">@color/high_contrast_primaryVariant</item>
+        <item name="colorSecondary">@color/high_contrast_secondary</item>
+        
+        <!-- Background colors -->
+        <item name="android:colorBackground">@color/high_contrast_background</item>
+        <item name="colorSurface">@color/high_contrast_surface</item>
+        
+        <!-- On colors -->
+        <item name="colorOnPrimary">@color/high_contrast_onPrimary</item>
+        <item name="colorOnSecondary">@color/high_contrast_onSecondary</item>
+        <item name="colorOnBackground">@color/high_contrast_onBackground</item>
+        <item name="colorOnSurface">@color/high_contrast_onSurface</item>
+        
+        <!-- Custom attributes -->
+        <item name="colorError">@color/high_contrast_errorColor</item>
+        <item name="colorSuccess">@color/high_contrast_successColor</item>
+        <item name="textColorPrimary">@color/high_contrast_textPrimary</item>
+        <item name="textColorSecondary">@color/high_contrast_textSecondary</item>
+        <item name="outlineColor">@color/high_contrast_outline</item>
+        <item name="dividerColor">@color/high_contrast_divider</item>
+        
+        <!-- Text appearance -->
+        <item name="android:textColorPrimary">@color/high_contrast_textPrimary</item>
+        <item name="android:textColorSecondary">@color/high_contrast_textSecondary</item>
+    </style>
+</resources>
