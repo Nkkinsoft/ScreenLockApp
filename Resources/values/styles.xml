@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base Application Theme -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorError">@color/colorError</item>
+        <item name="colorSuccess">@color/colorSuccess</item>
+        <item name="android:colorBackground">@color/colorBackground</item>
+        <item name="colorSurface">@color/colorSurface</item>
+        <item name="colorOnPrimary">@color/colorOnPrimary</item>
+        <item name="colorOnBackground">@color/colorOnBackground</item>
+        <item name="colorOnSurface">@color/colorOnSurface</item>
+    </style>
+    
+    <!-- High Contrast Theme -->
+    <style name="AppTheme.HighContrast" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimaryHighContrast</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryHighContrast</item>
+        <item name="colorAccent">@color/colorAccentHighContrast</item>
+        <item name="colorError">@color/colorErrorHighContrast</item>
+        <item name="colorSuccess">@color/colorSuccessHighContrast</item>
+        <item name="android:colorBackground">@color/colorBackgroundHighContrast</item>
+        <item name="colorSurface">@color/colorSurfaceHighContrast</item>
+        <item name="colorOnPrimary">@color/colorOnPrimaryHighContrast</item>
+        <item name="colorOnBackground">@color/colorOnBackgroundHighContrast</item>
+        <item name="colorOnSurface">@color/colorOnSurfaceHighContrast</item>
+    </style>
+    
+    <!-- Custom Attributes -->
+    <attr name="colorError" format="color" />
+    <attr name="colorSuccess" format="color" />
+    <attr name="colorSurface" format="color" />
+    <attr name="colorOnPrimary" format="color" />
+    <attr name="colorOnBackground" format="color" />
+    <attr name="colorOnSurface" format="color" />
+</resources>

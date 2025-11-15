@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Challenge Arrays -->
+    <string-array name="challenge_names">
+        <item>@string/challenge_time</item>
+        <item>@string/challenge_battery</item>
+        <item>@string/challenge_hour</item>
+        <item>@string/challenge_daily_code</item>
+        <item>@string/challenge_battery_hour</item>
+    </string-array>
+    
+    <string-array name="challenge_ids">
+        <item>time</item>
+        <item>battery</item>
+        <item>hour</item>
+        <item>daily_code</item>
+        <item>battery_hour</item>
+    </string-array>
+    
+    <!-- Theme Mode Arrays -->
+    <string-array name="theme_mode_names">
+        <item>Light</item>
+        <item>Dark</item>
+        <item>System Default</item>
+    </string-array>
+    
+    <string-array name="theme_mode_values">
+        <item>light</item>
+        <item>dark</item>
+        <item>system</item>
+    </string-array>
+</resources>
