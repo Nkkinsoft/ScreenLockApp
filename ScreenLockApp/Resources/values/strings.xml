@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ScreenLockApp</string>
+    <string name="lock_screen_title">Screen Lock</string>
+    <string name="admin_activation_title">Device Admin Setup</string>
+    
+    <!-- Lock Screen -->
+    <string name="enter_time">Enter current time (HHMM)</string>
+    <string name="unlock">Unlock</string>
+    <string name="time_hint">e.g., 1327 for 13:27</string>
+    <string name="error_invalid_time">Time does not match current time window</string>
+    <string name="hint_after_failures">Use current 24h time HHMM</string>
+    <string name="validating">Validating…</string>
+    
+    <!-- MainActivity -->
+    <string name="enable_lock">Enable Lock</string>
+    <string name="disable_lock">Disable Lock</string>
+    <string name="trigger_lock">Trigger Lock Now</string>
+    <string name="auto_start_on_boot">Auto-start on boot</string>
+    <string name="device_admin_status">Device Admin Status</string>
+    <string name="admin_enabled">Enabled</string>
+    <string name="admin_disabled">Not Enabled</string>
+    <string name="enable_admin">Enable Device Admin</string>
+    
+    <!-- Admin Activation -->
+    <string name="admin_activation_message">This app requires device administrator privileges to function properly. Please grant the necessary permissions.</string>
+    <string name="activate">Activate</string>
+    <string name="cancel">Cancel</string>
+    <string name="admin_activation_success">Device admin activated successfully</string>
+    <string name="admin_activation_failed">Failed to activate device admin</string>
+    
+    <!-- Service -->
+    <string name="service_notification_title">Screen Lock Active</string>
+    <string name="service_notification_text">Monitoring lock schedule</string>
+    <string name="service_channel_name">Lock Service</string>
+    <string name="service_channel_description">Background service for screen lock monitoring</string>
+    
+    <!-- Accessibility -->
+    <string name="time_input_description">Enter current time in 24-hour format</string>
+    <string name="unlock_button_description">Submit time to unlock screen</string>
+</resources>
