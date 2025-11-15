@@ -5,6 +5,7 @@ using Android.OS;
 using Android.Widget;
 using AndroidX.AppCompat.App;
 using Google.Android.Material.Button;
+using Google.Android.Material.RadioButton;
 using Google.Android.Material.SwitchMaterial;
 using ScreenLockApp.Admin;
 using ScreenLockApp.Data;
@@ -31,6 +32,9 @@ public class MainActivity : AppCompatActivity
     private MaterialButton? _enableAdminButton;
     private SwitchMaterial? _enableLockSwitch;
     private SwitchMaterial? _autoStartSwitch;
+    private RadioGroup? _challengeRadioGroup;
+    private MaterialRadioButton? _radioTimeChallenge;
+    private MaterialRadioButton? _radioBatteryHourChallenge;
     private MaterialButton? _triggerLockButton;
 
     protected override void OnCreate(Bundle? savedInstanceState)
@@ -62,6 +66,9 @@ public class MainActivity : AppCompatActivity
         _enableAdminButton = FindViewById<MaterialButton>(Resource.Id.enableAdminButton);
         _enableLockSwitch = FindViewById<SwitchMaterial>(Resource.Id.enableLockSwitch);
         _autoStartSwitch = FindViewById<SwitchMaterial>(Resource.Id.autoStartSwitch);
+        _challengeRadioGroup = FindViewById<RadioGroup>(Resource.Id.challengeRadioGroup);
+        _radioTimeChallenge = FindViewById<MaterialRadioButton>(Resource.Id.radioTimeChallenge);
+        _radioBatteryHourChallenge = FindViewById<MaterialRadioButton>(Resource.Id.radioBatteryHourChallenge);
         _triggerLockButton = FindViewById<MaterialButton>(Resource.Id.triggerLockButton);
 
         if (_enableAdminButton != null)
@@ -77,6 +84,11 @@ public class MainActivity : AppCompatActivity
         if (_autoStartSwitch != null)
         {
             _autoStartSwitch.CheckedChange += OnAutoStartChanged;
+        }
+
+        if (_challengeRadioGroup != null)
+        {
+            _challengeRadioGroup.CheckedChange += OnChallengeChanged;
         }
 
         if (_triggerLockButton != null)
@@ -118,6 +130,24 @@ public class MainActivity : AppCompatActivity
             _autoStartSwitch.Checked = _prefs.AutoStartOnBoot;
             _autoStartSwitch.CheckedChange += OnAutoStartChanged;
         }
+
+        // Update challenge selection
+        if (_challengeRadioGroup != null && _radioTimeChallenge != null && _radioBatteryHourChallenge != null)
+        {
+            _challengeRadioGroup.CheckedChange -= OnChallengeChanged;
+            
+            string selectedChallenge = _prefs.SelectedChallenge;
+            if (selectedChallenge == "time")
+            {
+                _radioTimeChallenge.Checked = true;
+            }
+            else if (selectedChallenge == "battery_hour")
+            {
+                _radioBatteryHourChallenge.Checked = true;
+            }
+            
+            _challengeRadioGroup.CheckedChange += OnChallengeChanged;
+        }
     }
 
     private void OnEnableAdminClicked(object? sender, EventArgs e)
@@ -143,6 +173,18 @@ public class MainActivity : AppCompatActivity
     private void OnAutoStartChanged(object? sender, CompoundButton.CheckedChangeEventArgs e)
     {
         _prefs.AutoStartOnBoot = e.IsChecked;
+    }
+
+    private void OnChallengeChanged(object? sender, RadioGroup.CheckedChangeEventArgs e)
+    {
+        if (e.CheckedId == Resource.Id.radioTimeChallenge)
+        {
+            _prefs.SelectedChallenge = "time";
+        }
+        else if (e.CheckedId == Resource.Id.radioBatteryHourChallenge)
+        {
+            _prefs.SelectedChallenge = "battery_hour";
+        }
     }
 
     private void OnTriggerLockClicked(object? sender, EventArgs e)

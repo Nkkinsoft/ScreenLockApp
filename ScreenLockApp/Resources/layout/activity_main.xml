@@ -114,6 +114,37 @@
                 android:textColor="@color/text_primary"
                 android:layout_marginBottom="16dp" />
 
+            <!-- Challenge Selection -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lock Challenge"
+                android:textSize="14sp"
+                android:textColor="@color/text_primary"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+
+            <RadioGroup
+                android:id="@+id/challengeRadioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp">
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/radioTimeChallenge"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Time (HHMM)"
+                    android:textColor="@color/text_primary" />
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/radioBatteryHourChallenge"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Battery + Hour (HHPP)"
+                    android:textColor="@color/text_primary" />
+            </RadioGroup>
+
             <!-- Trigger Lock Button -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/triggerLockButton"

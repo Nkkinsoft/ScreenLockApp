@@ -1,36 +1,37 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using ScreenLockApp.Core;
+using ScreenLockApp.Core.Challenges;
 
 namespace ScreenLockApp.UI;
 
 /// <summary>
 /// ViewModel for the LockActivity.
-/// Handles time validation logic and UI state.
+/// Handles challenge validation logic and UI state.
 /// </summary>
 public class LockViewModel : INotifyPropertyChanged
 {
-    private readonly TimeValidator _timeValidator;
-    private string _timeInput = string.Empty;
+    private IUnlockChallenge _challenge;
+    private string _input = string.Empty;
     private string _errorMessage = string.Empty;
     private bool _isValidating;
     private int _failureCount;
 
     public event PropertyChangedEventHandler? PropertyChanged;
 
-    public LockViewModel()
+    public LockViewModel(IUnlockChallenge challenge)
     {
-        _timeValidator = new TimeValidator();
+        _challenge = challenge ?? throw new ArgumentNullException(nameof(challenge));
     }
 
-    public string TimeInput
+    public string Input
     {
-        get => _timeInput;
+        get => _input;
         set
         {
-            if (_timeInput != value)
+            if (_input != value)
             {
-                _timeInput = value;
+                _input = value;
                 OnPropertyChanged();
                 // Clear error when user starts typing
                 ErrorMessage = string.Empty;
@@ -78,10 +79,32 @@ public class LockViewModel : INotifyPropertyChanged
     }
 
     /// <summary>
-    /// Validates the current time input.
+    /// Gets the required input length from the challenge.
+    /// </summary>
+    public int RequiredLength => _challenge.RequiredLength;
+
+    /// <summary>
+    /// Gets the challenge display name.
+    /// </summary>
+    public string ChallengeDisplayName => _challenge.DisplayName;
+
+    /// <summary>
+    /// Updates the challenge being used.
+    /// </summary>
+    public void UpdateChallenge(IUnlockChallenge challenge)
+    {
+        _challenge = challenge ?? throw new ArgumentNullException(nameof(challenge));
+        Input = string.Empty;
+        ErrorMessage = string.Empty;
+        OnPropertyChanged(nameof(RequiredLength));
+        OnPropertyChanged(nameof(ChallengeDisplayName));
+    }
+
+    /// <summary>
+    /// Validates the current input.
     /// </summary>
     /// <returns>True if validation succeeded, false otherwise.</returns>
-    public async Task<bool> ValidateTimeAsync()
+    public async Task<bool> ValidateAsync()
     {
         IsValidating = true;
         
@@ -90,7 +113,7 @@ public class LockViewModel : INotifyPropertyChanged
             // Simulate async validation (e.g., for network checks in the future)
             await Task.Delay(500);
             
-            var result = _timeValidator.ValidateTime(TimeInput);
+            var result = _challenge.Validate(Input);
             
             if (result.IsValid)
             {
@@ -117,7 +140,7 @@ public class LockViewModel : INotifyPropertyChanged
     {
         if (FailureCount >= 3)
         {
-            return "Use current 24h time HHMM";
+            return _challenge.GetHint();
         }
         return string.Empty;
     }

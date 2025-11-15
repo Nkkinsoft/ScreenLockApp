@@ -7,6 +7,7 @@ using AndroidX.Core.View;
 using Google.Android.Material.Button;
 using Google.Android.Material.ProgressIndicator;
 using Google.Android.Material.TextField;
+using ScreenLockApp.Challenges;
 using ScreenLockApp.Data;
 
 namespace ScreenLockApp.UI;
@@ -40,8 +41,13 @@ public class LockActivity : AppCompatActivity
         
         SetContentView(Resource.Layout.activity_lock);
         
-        _viewModel = new LockViewModel();
         _prefs = new PreferencesProvider(this);
+        
+        // Create challenge factory and get current challenge
+        var challengeFactory = new ChallengeFactory(this, _prefs);
+        var currentChallenge = challengeFactory.GetCurrentChallenge();
+        
+        _viewModel = new LockViewModel(currentChallenge);
         
         InitializeViews();
         SetupViewModelBindings();
@@ -174,9 +180,9 @@ public class LockActivity : AppCompatActivity
     {
         if (_timeInput == null) return;
 
-        _viewModel.TimeInput = _timeInput.Text ?? string.Empty;
+        _viewModel.Input = _timeInput.Text ?? string.Empty;
         
-        bool isValid = await _viewModel.ValidateTimeAsync();
+        bool isValid = await _viewModel.ValidateAsync();
         
         if (isValid)
         {
