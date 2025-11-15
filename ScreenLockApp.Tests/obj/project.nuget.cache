@@ -1,10 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "QKZQOrOCvr8=",
+  "dgSpecHash": "Dlagu0UGOtw=",
   "success": true,
   "projectFilePath": "/home/runner/work/ScreenLockApp/ScreenLockApp/ScreenLockApp.Tests/ScreenLockApp.Tests.csproj",
   "expectedPackageFiles": [
     "/home/runner/.nuget/packages/coverlet.collector/6.0.2/coverlet.collector.6.0.2.nupkg.sha512",
+    "/home/runner/.nuget/packages/fscheck/3.3.2/fscheck.3.3.2.nupkg.sha512",
+    "/home/runner/.nuget/packages/fscheck.nunit/3.3.2/fscheck.nunit.3.3.2.nupkg.sha512",
+    "/home/runner/.nuget/packages/fsharp.core/5.0.2/fsharp.core.5.0.2.nupkg.sha512",
     "/home/runner/.nuget/packages/microsoft.codecoverage/17.11.1/microsoft.codecoverage.17.11.1.nupkg.sha512",
     "/home/runner/.nuget/packages/microsoft.net.test.sdk/17.11.1/microsoft.net.test.sdk.17.11.1.nupkg.sha512",
     "/home/runner/.nuget/packages/microsoft.testplatform.objectmodel/17.11.1/microsoft.testplatform.objectmodel.17.11.1.nupkg.sha512",

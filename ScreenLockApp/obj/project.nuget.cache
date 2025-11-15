@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "48F/O8pioU0=",
+  "dgSpecHash": "de2j8jAmMyo=",
   "success": true,
   "projectFilePath": "/home/runner/work/ScreenLockApp/ScreenLockApp/ScreenLockApp/ScreenLockApp.csproj",
   "expectedPackageFiles": [
+    "/home/runner/.nuget/packages/microsoft.extensions.dependencyinjection/10.0.0/microsoft.extensions.dependencyinjection.10.0.0.nupkg.sha512",
+    "/home/runner/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/10.0.0/microsoft.extensions.dependencyinjection.abstractions.10.0.0.nupkg.sha512",
     "/home/runner/.nuget/packages/microsoft.net.illink.tasks/9.0.11/microsoft.net.illink.tasks.9.0.11.nupkg.sha512",
     "/home/runner/.nuget/packages/xamarin.androidx.activity/1.9.3.1/xamarin.androidx.activity.1.9.3.1.nupkg.sha512",
     "/home/runner/.nuget/packages/xamarin.androidx.annotation/1.9.1.1/xamarin.androidx.annotation.1.9.1.1.nupkg.sha512",

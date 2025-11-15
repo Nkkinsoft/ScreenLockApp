@@ -11,7 +11,8 @@ public class TimeValidatorTests
     [SetUp]
     public void Setup()
     {
-        _validator = new TimeValidator();
+        // Use default tolerance of 1 minute for existing tests
+        _validator = new TimeValidator(toleranceMinutes: 1);
     }
 
     [Test]

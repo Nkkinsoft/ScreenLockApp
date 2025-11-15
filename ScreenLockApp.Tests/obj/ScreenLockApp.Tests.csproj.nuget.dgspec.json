@@ -107,6 +107,14 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "FsCheck": {
+              "target": "Package",
+              "version": "[3.3.2, )"
+            },
+            "FsCheck.NUnit": {
+              "target": "Package",
+              "version": "[3.3.2, )"
+            },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[17.11.1, )"

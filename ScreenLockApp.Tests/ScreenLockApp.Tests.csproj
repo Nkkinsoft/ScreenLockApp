@@ -6,9 +6,13 @@
     <Nullable>enable</Nullable>
     <IsPackable>false</IsPackable>
     <IsTestProject>true</IsTestProject>
+    <!-- Suppress NUnit analyzer warning for FsCheck property-based tests -->
+    <NoWarn>$(NoWarn);NUnit1027</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FsCheck" Version="3.3.2" />
+    <PackageReference Include="FsCheck.NUnit" Version="3.3.2" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.11.1" />
     <PackageReference Include="NUnit" Version="4.2.2" />
     <PackageReference Include="NUnit3TestAdapter" Version="4.6.0" />

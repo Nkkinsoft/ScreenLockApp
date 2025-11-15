@@ -13,12 +13,34 @@ public class ValidationResult
 }
 
 /// <summary>
-/// Validates time-based authentication with ±1 minute tolerance.
+/// Validates time-based authentication with configurable tolerance.
 /// Handles midnight wrap-around and edge cases.
 /// </summary>
 public class TimeValidator
 {
-    private const int ToleranceMinutes = 1;
+    private readonly int _toleranceMinutes;
+    private readonly ITimeProvider _timeProvider;
+
+    /// <summary>
+    /// Initializes a new instance of TimeValidator with specified tolerance.
+    /// </summary>
+    /// <param name="toleranceMinutes">Tolerance in minutes (0-2). 0 = exact match only.</param>
+    /// <param name="timeProvider">Time provider for getting current time. If null, uses SystemTimeProvider.</param>
+    public TimeValidator(int toleranceMinutes = AppConfig.DefaultToleranceMinutes, ITimeProvider? timeProvider = null)
+    {
+        if (toleranceMinutes < 0 || toleranceMinutes > 2)
+        {
+            throw new ArgumentOutOfRangeException(nameof(toleranceMinutes), "Tolerance must be between 0 and 2 minutes");
+        }
+
+        _toleranceMinutes = toleranceMinutes;
+        _timeProvider = timeProvider ?? new SystemTimeProvider();
+    }
+
+    /// <summary>
+    /// Gets the current tolerance in minutes.
+    /// </summary>
+    public int ToleranceMinutes => _toleranceMinutes;
 
     /// <summary>
     /// Validates the input time against the current system time.
@@ -60,8 +82,8 @@ public class TimeValidator
             return ValidationResult.Failure("Minute must be between 00 and 59");
         }
 
-        // Get current system time
-        DateTime now = DateTime.Now;
+        // Get current time from time provider
+        DateTime now = _timeProvider.Now;
         DateTime inputTime = new DateTime(now.Year, now.Month, now.Day, inputHour, inputMinute, 0);
 
         // Check if input time is within tolerance (±1 minute)
@@ -97,8 +119,8 @@ public class TimeValidator
             difference += 1440; // Add 24 hours in minutes
         }
 
-        // Check if within ±1 minute tolerance
-        return Math.Abs(difference) <= ToleranceMinutes;
+        // Check if within tolerance
+        return Math.Abs(difference) <= _toleranceMinutes;
     }
 
     /// <summary>
