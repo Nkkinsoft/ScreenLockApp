@@ -53,7 +53,7 @@ public class SettingsFragment : PreferenceFragmentCompat
     
     private void StrictMode_PreferenceChange(object? sender, Preference.PreferenceChangeEventArgs e)
     {
-        if (e.NewValue is bool strictEnabled && strictEnabled)
+        if (e.NewValue is Java.Lang.Boolean javaBoolean && javaBoolean.BooleanValue())
         {
             // Override tolerances to 0
             var prefs = PreferenceManager.GetDefaultSharedPreferences(RequireContext());
