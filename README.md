@@ -1,22 +1,41 @@
 # ScreenLockApp
 
-Advanced Screen Lock Android application with time-based authentication built using Xamarin/.NET for Android.
+Advanced Screen Lock Android application with multi-challenge authentication built using Xamarin/.NET for Android.
 
 ## Features
 
-### 1. **Time-Based Unlock System**
+### 1. **Multi-Challenge Unlock System**
+The app supports multiple challenge types for unlocking:
+
+#### Time Challenge (Default)
 - Unlock the screen by entering the current device time in 24-hour format (HHMM)
 - ±1 minute tolerance for user convenience
 - Handles midnight wrap-around correctly (23:59 → 00:00)
 - Comprehensive input validation with clear error messages
 
+#### Battery + Hour Challenge
+- Composite challenge requiring Hour + Battery percentage
+- **Format**: `HHPP` (4 digits)
+  - `HH`: Current hour in 24-hour format (00-23)
+  - `PP`: Current battery percentage (00-99)
+- **Example**: If time is 13:27 and battery is 57%, enter `1357`
+- **Tolerance**:
+  - Hour must match exactly (no tolerance)
+  - Battery allows ±1% tolerance by default
+- **Special Cases**:
+  - Battery at 100% is capped to 99% (maintains 4-digit format)
+  - Unavailable battery status shows error message
+  - Strict mode forces battery tolerance to 0%
+- **Battery 100% Limitation**: When battery reaches 100%, it's treated as 99% to maintain consistent 4-digit input length and avoid ambiguity
+
 ### 2. **Fullscreen Lock Overlay**
 - Immersive fullscreen activity that appears over all apps
 - Prevents navigation using back, recents, or home buttons
-- Material Design dark theme with centered time input
+- Material Design dark theme with centered input field
 - Secure mode preventing screenshots
 - Progress indicators for all async operations
 - Accessibility labels for screen readers
+- Dynamic hints based on selected challenge
 
 ### 3. **Device Administration**
 - Device admin capabilities for enhanced security
@@ -30,28 +49,40 @@ Advanced Screen Lock Android application with time-based authentication built us
 - User-configurable auto-start on boot
 - Settings stored in SharedPreferences
 
-### 5. **MVVM Architecture**
+### 5. **MVVM Architecture with Challenge System**
 - Clean separation of concerns:
+  - `/Core/Challenges`: Challenge interfaces and implementations
   - `/Core`: TimeValidator and validation models
   - `/UI`: Activities and ViewModels
   - `/Admin`: DeviceAdminReceiver
   - `/Service`: LockService and BootReceiver
   - `/Data`: PreferencesProvider
+  - `/Utils`: Battery and utility helpers
 
 ## Project Structure
 
 ```
 ScreenLockApp/
 ├── ScreenLockApp.Core/          # Core business logic
-│   └── TimeValidator.cs         # Time validation with ±1 min tolerance
+│   ├── Challenges/              # Challenge system
+│   │   ├── IUnlockChallenge.cs  # Challenge interface
+│   │   ├── ChallengeRegistry.cs # Challenge registry
+│   │   ├── TimeChallenge.cs     # Time-based challenge
+│   │   └── BatteryHourChallenge.cs # Battery + Hour challenge
+│   ├── TimeValidator.cs         # Time validation with ±1 min tolerance
+│   └── ValidationResult.cs      # Validation result model
 ├── ScreenLockApp/               # Android application
 │   ├── Admin/
 │   │   └── TimeDeviceAdminReceiver.cs
+│   ├── Challenges/
+│   │   └── ChallengeFactory.cs  # Android challenge factory
 │   ├── Data/
-│   │   └── PreferencesProvider.cs
+│   │   └── PreferencesProvider.cs # Settings persistence
 │   ├── Service/
 │   │   ├── LockService.cs      # Foreground service
 │   │   └── BootReceiver.cs     # Boot-completed receiver
+│   ├── Utils/
+│   │   └── BatteryHelper.cs    # Battery status utility
 │   ├── UI/
 │   │   ├── MainActivity.cs     # Main settings screen
 │   │   ├── LockActivity.cs     # Fullscreen lock overlay
@@ -66,7 +97,9 @@ ScreenLockApp/
 │       └── AndroidManifest.xml # Permissions and components
 └── ScreenLockApp.Tests/         # Unit tests
     └── Core/
-        └── TimeValidatorTests.cs # 20 comprehensive tests
+        ├── TimeValidatorTests.cs # 20 comprehensive tests
+        └── Challenges/
+            └── BatteryHourChallengeTests.cs # 16 challenge tests
 
 ```
 
@@ -125,12 +158,14 @@ Or use Visual Studio / Visual Studio Code with the .NET MAUI extension.
    - This is required for the lock screen to function
 
 2. **Configure Settings**
+   - **Select Challenge Type**: Choose between Time or Battery + Hour
    - Toggle "Enable Lock" to activate the lock functionality
    - Enable "Auto-start on boot" if you want the service to start automatically
    - Tap "Trigger Lock Now" to test the lock screen
 
-### Using the Lock Screen
+### Challenge Types
 
+#### Time Challenge (Default)
 1. When the lock screen appears, enter the current time in 24-hour format (HHMM)
    - Example: For 1:27 PM, enter `1327`
    - Example: For 9:05 AM, enter `0905`
@@ -138,7 +173,21 @@ Or use Visual Studio / Visual Studio Code with the .NET MAUI extension.
 2. The system accepts times within ±1 minute of the current time
    - If current time is 13:27, valid inputs are: 1326, 1327, 1328
 
-3. After 3 failed attempts, a hint will appear: "Use current 24h time HHMM"
+3. After 3 failed attempts, a hint will appear with the current time format
+
+#### Battery + Hour Challenge
+1. Enter the current hour + battery percentage (HHPP)
+   - Example: For 1:27 PM with 57% battery, enter `1357`
+   - Example: For 9:05 AM with 85% battery, enter `0985`
+
+2. Validation rules:
+   - Hour must match exactly (no tolerance)
+   - Battery allows ±1% tolerance (e.g., if battery is 57%, you can enter 56-58)
+   - Battery at 100% is treated as 99% (enter 99 for the battery part)
+
+3. After 3 failed attempts, a hint will appear showing the current hour and battery percentage
+
+### General Usage
 
 4. Enter the correct time and tap "Unlock" to dismiss the lock screen
 
@@ -155,13 +204,15 @@ Or use Visual Studio / Visual Studio Code with the .NET MAUI extension.
 
 ### Unit Tests
 
-The project includes comprehensive unit tests for the TimeValidator:
+The project includes comprehensive unit tests for all challenges:
 
 ```bash
 dotnet test ScreenLockApp.Tests/ScreenLockApp.Tests.csproj
 ```
 
 **Test Coverage:**
+
+**TimeValidator Tests (20 tests):**
 - Exact time match
 - ±1 minute tolerance (before and after)
 - Midnight wrap-around (23:59 → 00:00)
@@ -169,7 +220,17 @@ dotnet test ScreenLockApp.Tests/ScreenLockApp.Tests.csproj
 - Invalid hour/minute ranges
 - Boundary conditions
 
-All 20 tests pass successfully.
+**BatteryHourChallenge Tests (16 tests):**
+- Exact match (hour + battery)
+- Hour mismatch detection
+- Battery within/outside tolerance (±1%)
+- Strict mode (zero tolerance)
+- Battery capping (100% → 99%)
+- Battery unavailable handling
+- Input validation (length, format, ranges)
+- Hint generation
+
+All 36 tests pass successfully.
 
 ## Android Permissions
 
@@ -203,6 +264,27 @@ Special logic handles midnight transitions:
 - If difference < -12 hours, assume backward wrap (00:00 → 23:59)
 - Ensures ±1 minute tolerance works across midnight boundary
 
+### Battery + Hour Challenge Algorithm
+
+The `BatteryHourChallenge` class implements composite validation:
+
+1. Validates input format (exactly 4 digits, numeric)
+2. Extracts hour (first 2 digits) and battery percentage (last 2 digits)
+3. Validates hour range (00-23) and battery range (00-99)
+4. Compares hour with current system hour (exact match required)
+5. Gets current battery percentage from Android BatteryManager
+6. Caps battery at 99% if it's 100% (maintains 4-digit format)
+7. Compares battery within tolerance (default ±1%, configurable)
+8. Strict mode forces battery tolerance to 0%
+
+### Challenge Architecture
+
+The app uses a plugin-like challenge system:
+- `IUnlockChallenge` interface defines the contract
+- `ChallengeRegistry` manages available challenges
+- `ChallengeFactory` creates challenge instances with Android context
+- Easy to add new challenge types by implementing the interface
+
 ### Material Design Theme
 
 - Dark theme with Material Components
@@ -216,6 +298,7 @@ Special logic handles midnight transitions:
 - Lock screen can be bypassed by rebooting the device (unless auto-start is enabled)
 - Device admin can be disabled through Settings > Security
 - Requires user to grant device admin permissions manually
+- **Battery + Hour Challenge**: Battery at 100% is treated as 99% to maintain consistent 4-digit format
 
 ## Future Enhancements
 
