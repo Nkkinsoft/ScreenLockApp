@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App Name -->
+    <string name="app_name">Screen Lock App</string>
+    
+    <!-- MainActivity -->
+    <string name="main_title">Time-Based Screen Lock</string>
+    <string name="tolerance_label">Tolerance Setting</string>
+    <string name="tolerance_strict">Strict (Exact Match)</string>
+    <string name="tolerance_normal">Normal (±1 Minute)</string>
+    <string name="tolerance_relaxed">Relaxed (±2 Minutes)</string>
+    <string name="grace_period_label">Grace Period</string>
+    <string name="grace_period_enabled">Enabled</string>
+    <string name="grace_period_duration_label">Duration</string>
+    <string name="grace_period_off">Off</string>
+    <string name="grace_period_1min">1 Minute</string>
+    <string name="grace_period_2min">2 Minutes</string>
+    <string name="grace_period_5min">5 Minutes</string>
+    <string name="lock_task_mode_label">Lock Task Mode (Device Owner Only)</string>
+    <string name="lock_task_mode_enabled">Enable Kiosk Mode</string>
+    <string name="trigger_lock_button">Trigger Screen Lock</string>
+    <string name="settings_saved">Settings saved</string>
+    
+    <!-- LockActivity -->
+    <string name="lock_screen_title">Enter Current Time</string>
+    <string name="time_display_hint">Enter time (HHMM)</string>
+    <string name="button_submit">Submit</string>
+    <string name="button_clear">Clear</string>
+    <string name="validation_success">Unlocked!</string>
+    <string name="validation_failure">Incorrect time. Try again.</string>
+    <string name="hint_exact_only">Hint: Enter the current time (exact match required). Tolerance: Exact only</string>
+    <string name="hint_tolerance_1">Hint: Enter the current time. Tolerance: ±1 minute</string>
+    <string name="hint_tolerance_2">Hint: Enter the current time. Tolerance: ±2 minutes</string>
+    
+    <!-- Keypad -->
+    <string name="keypad_button_0">0</string>
+    <string name="keypad_button_1">1</string>
+    <string name="keypad_button_2">2</string>
+    <string name="keypad_button_3">3</string>
+    <string name="keypad_button_4">4</string>
+    <string name="keypad_button_5">5</string>
+    <string name="keypad_button_6">6</string>
+    <string name="keypad_button_7">7</string>
+    <string name="keypad_button_8">8</string>
+    <string name="keypad_button_9">9</string>
+    <string name="keypad_content_desc_digit">Digit %1$s</string>
+    <string name="keypad_content_desc_clear">Clear input</string>
+    <string name="keypad_content_desc_submit">Submit time</string>
+    
+    <!-- Service -->
+    <string name="lock_service_notification_title">Screen Lock Active</string>
+    <string name="lock_service_notification_text">Screen lock is monitoring system time</string>
+    <string name="lock_service_channel_name">Screen Lock Service</string>
+    <string name="lock_service_channel_desc">Notifications for screen lock service</string>
+    
+    <!-- TimeChangeReceiver -->
+    <string name="time_changed_notification">System time changed while locked</string>
+    
+    <!-- Errors -->
+    <string name="error_device_owner_required">Device owner permission required for lock task mode</string>
+    <string name="error_generic">An error occurred</string>
+</resources>

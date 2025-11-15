@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:columnCount="3"
+    android:rowCount="4"
+    android:padding="8dp">
+
+    <!-- Row 1: 1, 2, 3 -->
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:layout_margin="4dp"
+        android:text="@string/keypad_button_1"
+        android:textSize="24sp"
+        android:minHeight="64dp"
+        android:contentDescription="@string/keypad_content_desc_digit"
+        style="@style/KeypadButtonStyle" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:layout_margin="4dp"
+        android:text="@string/keypad_button_2"
+        android:textSize="24sp"
+        android:minHeight="64dp"
+        style="@style/KeypadButtonStyle" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:layout_margin="4dp"
+        android:text="@string/keypad_button_3"
+        android:textSize="24sp"
+        android:minHeight="64dp"
+        style="@style/KeypadButtonStyle" />
+
+    <!-- Row 2: 4, 5, 6 -->
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:layout_margin="4dp"
+        android:text="@string/keypad_button_4"
+        android:textSize="24sp"
+        android:minHeight="64dp"
+        style="@style/KeypadButtonStyle" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:layout_margin="4dp"
+        android:text="@string/keypad_button_5"
+        android:textSize="24sp"
+        android:minHeight="64dp"
+        style="@style/KeypadButtonStyle" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:layout_margin="4dp"
+        android:text="@string/keypad_button_6"
+        android:textSize="24sp"
+        android:minHeight="64dp"
+        style="@style/KeypadButtonStyle" />
+
+    <!-- Row 3: 7, 8, 9 -->
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:layout_margin="4dp"
+        android:text="@string/keypad_button_7"
+        android:textSize="24sp"
+        android:minHeight="64dp"
+        style="@style/KeypadButtonStyle" />
+
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:layout_margin="4dp"
+        android:text="@string/keypad_button_8"
+        android:textSize="24sp"
+        android:minHeight="64dp"
+        style="@style/KeypadButtonStyle" />
+
+    <Button
+        android:id="@+id/button9"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:layout_margin="4dp"
+        android:text="@string/keypad_button_9"
+        android:textSize="24sp"
+        android:minHeight="64dp"
+        style="@style/KeypadButtonStyle" />
+
+    <!-- Row 4: Clear, 0, Submit -->
+    <Button
+        android:id="@+id/buttonClear"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:layout_margin="4dp"
+        android:text="@string/button_clear"
+        android:textSize="18sp"
+        android:minHeight="64dp"
+        android:contentDescription="@string/keypad_content_desc_clear"
+        style="@style/KeypadButtonStyle" />
+
+    <Button
+        android:id="@+id/button0"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:layout_margin="4dp"
+        android:text="@string/keypad_button_0"
+        android:textSize="24sp"
+        android:minHeight="64dp"
+        style="@style/KeypadButtonStyle" />
+
+    <Button
+        android:id="@+id/buttonSubmit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:layout_margin="4dp"
+        android:text="@string/button_submit"
+        android:textSize="18sp"
+        android:minHeight="64dp"
+        android:contentDescription="@string/keypad_content_desc_submit"
+        style="@style/KeypadButtonStyle"
+        android:enabled="false" />
+
+</GridLayout>

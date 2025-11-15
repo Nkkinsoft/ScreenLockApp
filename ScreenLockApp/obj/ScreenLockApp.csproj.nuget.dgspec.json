@@ -1,0 +1,187 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/runner/work/ScreenLockApp/ScreenLockApp/ScreenLockApp/ScreenLockApp.csproj": {}
+  },
+  "projects": {
+    "/home/runner/work/ScreenLockApp/ScreenLockApp/ScreenLockApp.Core/ScreenLockApp.Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/runner/work/ScreenLockApp/ScreenLockApp/ScreenLockApp.Core/ScreenLockApp.Core.csproj",
+        "projectName": "ScreenLockApp.Core",
+        "projectPath": "/home/runner/work/ScreenLockApp/ScreenLockApp/ScreenLockApp.Core/ScreenLockApp.Core.csproj",
+        "packagesPath": "/home/runner/.nuget/packages/",
+        "outputPath": "/home/runner/work/ScreenLockApp/ScreenLockApp/ScreenLockApp.Core/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/runner/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "10.0.100"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/10.0.100/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/runner/work/ScreenLockApp/ScreenLockApp/ScreenLockApp/ScreenLockApp.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/runner/work/ScreenLockApp/ScreenLockApp/ScreenLockApp/ScreenLockApp.csproj",
+        "projectName": "ScreenLockApp",
+        "projectPath": "/home/runner/work/ScreenLockApp/ScreenLockApp/ScreenLockApp/ScreenLockApp.csproj",
+        "packagesPath": "/home/runner/.nuget/packages/",
+        "outputPath": "/home/runner/work/ScreenLockApp/ScreenLockApp/ScreenLockApp/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/runner/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0-android"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0-android35.0": {
+            "targetAlias": "net9.0-android",
+            "projectReferences": {
+              "/home/runner/work/ScreenLockApp/ScreenLockApp/ScreenLockApp.Core/ScreenLockApp.Core.csproj": {
+                "projectPath": "/home/runner/work/ScreenLockApp/ScreenLockApp/ScreenLockApp.Core/ScreenLockApp.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "10.0.100"
+      },
+      "frameworks": {
+        "net9.0-android35.0": {
+          "targetAlias": "net9.0-android",
+          "dependencies": {
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[10.0.0, )"
+            },
+            "Microsoft.NET.ILLink.Tasks": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.11, )",
+              "autoReferenced": true
+            },
+            "Xamarin.AndroidX.Activity": {
+              "target": "Package",
+              "version": "[1.9.3.1, )"
+            },
+            "Xamarin.AndroidX.AppCompat": {
+              "target": "Package",
+              "version": "[1.7.0.4, )"
+            },
+            "Xamarin.AndroidX.ConstraintLayout": {
+              "target": "Package",
+              "version": "[2.2.0.1, )"
+            },
+            "Xamarin.AndroidX.Core": {
+              "target": "Package",
+              "version": "[1.15.0.1, )"
+            },
+            "Xamarin.Google.Android.Material": {
+              "target": "Package",
+              "version": "[1.12.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.Android.Ref.35",
+              "version": "[35.0.105, 35.0.105]"
+            },
+            {
+              "name": "Microsoft.Android.Runtime.35.android-arm64",
+              "version": "[35.0.105, 35.0.105]"
+            },
+            {
+              "name": "Microsoft.Android.Runtime.35.android-x64",
+              "version": "[35.0.105, 35.0.105]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.Android": {
+              "privateAssets": "all"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/10.0.100/PortableRuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "android-arm64": {
+          "#import": []
+        },
+        "android-x64": {
+          "#import": []
+        }
+      }
+    }
+  }
+}
