@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="24dp"
+    android:background="?attr/colorBackground">
+    
+    <TextView
+        android:id="@+id/hintText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/hint_enter_code"
+        android:textSize="18sp"
+        android:textColor="?attr/colorOnBackground"
+        android:layout_marginBottom="16dp"
+        android:gravity="center" />
+    
+    <TextView
+        android:id="@+id/inputDisplay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="32sp"
+        android:textColor="?attr/colorOnBackground"
+        android:gravity="center"
+        android:minHeight="48dp"
+        android:layout_marginBottom="8dp" />
+    
+    <TextView
+        android:id="@+id/errorText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textColor="?attr/colorError"
+        android:layout_marginBottom="24dp"
+        android:visibility="gone"
+        android:accessibilityLiveRegion="polite" />
+    
+    <!-- Keypad Grid -->
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:columnCount="3"
+        android:rowCount="4"
+        android:layout_marginBottom="24dp">
+        
+        <Button
+            android:id="@+id/btn1"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:text="1"
+            android:textSize="24sp"
+            android:layout_margin="4dp"
+            android:backgroundTint="?attr/colorPrimary"
+            android:textColor="?attr/colorOnPrimary" />
+        
+        <Button
+            android:id="@+id/btn2"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:text="2"
+            android:textSize="24sp"
+            android:layout_margin="4dp"
+            android:backgroundTint="?attr/colorPrimary"
+            android:textColor="?attr/colorOnPrimary" />
+        
+        <Button
+            android:id="@+id/btn3"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:text="3"
+            android:textSize="24sp"
+            android:layout_margin="4dp"
+            android:backgroundTint="?attr/colorPrimary"
+            android:textColor="?attr/colorOnPrimary" />
+        
+        <Button
+            android:id="@+id/btn4"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:text="4"
+            android:textSize="24sp"
+            android:layout_margin="4dp"
+            android:backgroundTint="?attr/colorPrimary"
+            android:textColor="?attr/colorOnPrimary" />
+        
+        <Button
+            android:id="@+id/btn5"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:text="5"
+            android:textSize="24sp"
+            android:layout_margin="4dp"
+            android:backgroundTint="?attr/colorPrimary"
+            android:textColor="?attr/colorOnPrimary" />
+        
+        <Button
+            android:id="@+id/btn6"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:text="6"
+            android:textSize="24sp"
+            android:layout_margin="4dp"
+            android:backgroundTint="?attr/colorPrimary"
+            android:textColor="?attr/colorOnPrimary" />
+        
+        <Button
+            android:id="@+id/btn7"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:text="7"
+            android:textSize="24sp"
+            android:layout_margin="4dp"
+            android:backgroundTint="?attr/colorPrimary"
+            android:textColor="?attr/colorOnPrimary" />
+        
+        <Button
+            android:id="@+id/btn8"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:text="8"
+            android:textSize="24sp"
+            android:layout_margin="4dp"
+            android:backgroundTint="?attr/colorPrimary"
+            android:textColor="?attr/colorOnPrimary" />
+        
+        <Button
+            android:id="@+id/btn9"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:text="9"
+            android:textSize="24sp"
+            android:layout_margin="4dp"
+            android:backgroundTint="?attr/colorPrimary"
+            android:textColor="?attr/colorOnPrimary" />
+        
+        <Space
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_margin="4dp" />
+        
+        <Button
+            android:id="@+id/btn0"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:text="0"
+            android:textSize="24sp"
+            android:layout_margin="4dp"
+            android:backgroundTint="?attr/colorPrimary"
+            android:textColor="?attr/colorOnPrimary" />
+        
+        <Space
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_margin="4dp" />
+    </GridLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+        
+        <Button
+            android:id="@+id/btnClear"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/btn_clear"
+            android:layout_marginEnd="8dp"
+            android:backgroundTint="?attr/colorAccent"
+            android:textColor="?attr/colorOnPrimary" />
+        
+        <Button
+            android:id="@+id/btnUnlock"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/btn_unlock"
+            android:layout_marginStart="8dp"
+            android:backgroundTint="?attr/colorSuccess"
+            android:textColor="?attr/colorOnPrimary" />
+    </LinearLayout>
+</LinearLayout>

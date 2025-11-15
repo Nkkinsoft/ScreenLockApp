@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ScreenLockApp</string>
+    
+    <!-- Main Activity -->
+    <string name="main_title">Screen Lock</string>
+    <string name="btn_lock_screen">Lock Screen</string>
+    <string name="btn_settings">Settings</string>
+    <string name="status_unlocked">Unlocked</string>
+    <string name="status_locked">Locked</string>
+    
+    <!-- Lock Activity -->
+    <string name="hint_enter_code">Enter code</string>
+    <string name="btn_unlock">Unlock</string>
+    <string name="btn_clear">Clear</string>
+    <string name="error_invalid_code">Invalid code</string>
+    <string name="error_validation_failed">Validation failed</string>
+    
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="pref_challenge_title">Active Challenge</string>
+    <string name="pref_challenge_summary">Select which challenge to use</string>
+    
+    <string name="pref_tolerance_title">Time Tolerance</string>
+    <string name="pref_tolerance_summary">Minutes of tolerance for time challenge</string>
+    
+    <string name="pref_battery_tolerance_title">Battery Tolerance</string>
+    <string name="pref_battery_tolerance_summary">Percentage tolerance for battery challenge</string>
+    
+    <string name="pref_grace_period_title">Grace Period</string>
+    <string name="pref_grace_period_summary">Minutes before re-lock after unlock</string>
+    
+    <string name="pref_strict_mode_title">Strict Mode</string>
+    <string name="pref_strict_mode_summary">Set all tolerances to 0</string>
+    
+    <string name="pref_high_contrast_title">High Contrast Theme</string>
+    <string name="pref_high_contrast_summary">Enable high contrast colors for better visibility</string>
+    
+    <string name="pref_theme_mode_title">Theme Mode</string>
+    <string name="pref_theme_mode_summary">Light, Dark, or System</string>
+    
+    <string name="pref_haptics_title">Enable Haptics</string>
+    <string name="pref_haptics_summary">Vibrate on button press</string>
+    
+    <string name="pref_auto_start_title">Auto Start</string>
+    <string name="pref_auto_start_summary">Start lock screen on boot</string>
+    
+    <string name="pref_debug_mode_title">Debug Mode</string>
+    <string name="pref_debug_mode_summary">Enable debug logging</string>
+    
+    <!-- Challenges -->
+    <string name="challenge_time">Current Time</string>
+    <string name="challenge_battery">Battery Level</string>
+    <string name="challenge_hour">Current Hour</string>
+    <string name="challenge_daily_code">Daily Code</string>
+    <string name="challenge_battery_hour">Battery + Hour</string>
+    
+    <!-- Accessibility -->
+    <string name="content_desc_digit_0">Digit 0</string>
+    <string name="content_desc_digit_1">Digit 1</string>
+    <string name="content_desc_digit_2">Digit 2</string>
+    <string name="content_desc_digit_3">Digit 3</string>
+    <string name="content_desc_digit_4">Digit 4</string>
+    <string name="content_desc_digit_5">Digit 5</string>
+    <string name="content_desc_digit_6">Digit 6</string>
+    <string name="content_desc_digit_7">Digit 7</string>
+    <string name="content_desc_digit_8">Digit 8</string>
+    <string name="content_desc_digit_9">Digit 9</string>
+    <string name="content_desc_clear">Clear input</string>
+    <string name="content_desc_unlock">Unlock screen</string>
+    
+    <!-- Announcements -->
+    <string name="announce_challenge_changed">Challenge changed to %1$s</string>
+    <string name="announce_validation_failed">Validation failed, please try again</string>
+</resources>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    
+    <PreferenceCategory
+        android:title="Challenge Settings">
+        
+        <ListPreference
+            android:key="active_challenge_id"
+            android:title="@string/pref_challenge_title"
+            android:summary="@string/pref_challenge_summary"
+            android:defaultValue="time"
+            android:entries="@array/challenge_names"
+            android:entryValues="@array/challenge_ids" />
+        
+        <SeekBarPreference
+            android:key="tolerance_minutes"
+            android:title="@string/pref_tolerance_title"
+            android:summary="@string/pref_tolerance_summary"
+            android:defaultValue="5"
+            android:max="15"
+            app:showSeekBarValue="true" />
+        
+        <SeekBarPreference
+            android:key="battery_tolerance"
+            android:title="@string/pref_battery_tolerance_title"
+            android:summary="@string/pref_battery_tolerance_summary"
+            android:defaultValue="5"
+            android:max="20"
+            app:showSeekBarValue="true" />
+        
+        <SeekBarPreference
+            android:key="grace_period_minutes"
+            android:title="@string/pref_grace_period_title"
+            android:summary="@string/pref_grace_period_summary"
+            android:defaultValue="0"
+            android:max="60"
+            app:showSeekBarValue="true" />
+        
+        <SwitchPreferenceCompat
+            android:key="strict_mode"
+            android:title="@string/pref_strict_mode_title"
+            android:summary="@string/pref_strict_mode_summary"
+            android:defaultValue="false" />
+    </PreferenceCategory>
+    
+    <PreferenceCategory
+        android:title="Appearance">
+        
+        <SwitchPreferenceCompat
+            android:key="high_contrast"
+            android:title="@string/pref_high_contrast_title"
+            android:summary="@string/pref_high_contrast_summary"
+            android:defaultValue="false" />
+        
+        <ListPreference
+            android:key="theme_mode"
+            android:title="@string/pref_theme_mode_title"
+            android:summary="@string/pref_theme_mode_summary"
+            android:defaultValue="system"
+            android:entries="@array/theme_mode_names"
+            android:entryValues="@array/theme_mode_values" />
+    </PreferenceCategory>
+    
+    <PreferenceCategory
+        android:title="Behavior">
+        
+        <SwitchPreferenceCompat
+            android:key="enable_haptics"
+            android:title="@string/pref_haptics_title"
+            android:summary="@string/pref_haptics_summary"
+            android:defaultValue="true" />
+        
+        <SwitchPreferenceCompat
+            android:key="enable_auto_start"
+            android:title="@string/pref_auto_start_title"
+            android:summary="@string/pref_auto_start_summary"
+            android:defaultValue="false" />
+    </PreferenceCategory>
+    
+    <PreferenceCategory
+        android:title="Developer">
+        
+        <SwitchPreferenceCompat
+            android:key="debug_mode"
+            android:title="@string/pref_debug_mode_title"
+            android:summary="@string/pref_debug_mode_summary"
+            android:defaultValue="false" />
+    </PreferenceCategory>
+</PreferenceScreen>

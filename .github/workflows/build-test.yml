@@ -1,0 +1,88 @@
+name: Build and Test
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x'
+        
+    - name: Install Android workload
+      run: dotnet workload install android
+      
+    - name: Restore dependencies
+      run: dotnet restore ScreenLockApp.csproj
+      
+    - name: Build Debug
+      run: dotnet build ScreenLockApp.csproj -c Debug --no-restore
+      
+    - name: Run Unit Tests
+      run: dotnet test ScreenLockApp.Tests/ScreenLockApp.Tests.csproj --verbosity normal
+      
+    - name: Build Release
+      run: dotnet build ScreenLockApp.csproj -c Release --no-restore
+      
+    - name: Upload Build Artifacts
+      uses: actions/upload-artifact@v4
+      if: success()
+      with:
+        name: apk-builds
+        path: |
+          bin/Debug/net8.0-android/*.apk
+          bin/Release/net8.0-android/*.apk
+        retention-days: 7
+        
+    - name: Upload Test Results
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: test-results
+        path: ScreenLockApp.Tests/TestResults/
+        retention-days: 7
+        
+  # Optional: Screenshot tests (requires emulator)
+  screenshot-tests:
+    runs-on: ubuntu-latest
+    # Commented out - requires Android emulator setup
+    if: false
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x'
+        
+    - name: Install Android workload
+      run: dotnet workload install android
+      
+    - name: Setup Android Emulator
+      uses: reactivecircus/android-emulator-runner@v2
+      with:
+        api-level: 31
+        target: google_apis
+        arch: x86_64
+        script: |
+          dotnet test ScreenLockApp.Tests/ScreenLockApp.Tests.csproj --filter Category=Instrumentation
+          
+    - name: Upload Screenshots
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: screenshots
+        path: ScreenLockApp.Tests/Screenshots/
+        retention-days: 14
