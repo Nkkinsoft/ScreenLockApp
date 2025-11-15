@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="grace_period_options">
+        <item>@string/grace_period_off</item>
+        <item>@string/grace_period_1min</item>
+        <item>@string/grace_period_2min</item>
+        <item>@string/grace_period_5min</item>
+    </string-array>
+</resources>

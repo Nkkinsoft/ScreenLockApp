@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="KeypadButtonStyle" parent="Widget.AppCompat.Button">
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:background">@drawable/keypad_button_background</item>
+    </style>
+</resources>
